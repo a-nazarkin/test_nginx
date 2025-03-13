@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Динамическая страница на Nginx</title>
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            document.getElementById('current-time').innerHTML = "Текущее время: " + timeString;
+        }
+        setInterval(updateTime, 60000); // обновление каждую минуту
+        document.addEventListener("DOMContentLoaded", updateTime);
+    </script>
+</head>
+<body>
+    <h1>Привет с сервера Nginx!</h1>
+    <p>Это тестовый сайт с динамическим временем.</p>
+    <p>Текущее время сервера: <span id="time"></span></p>
+
+    <script>
+        document.getElementById('time').innerText = new Date().toLocaleTimeString();
+        setInterval(function(){
+            document.getElementById('time').innerText = new Date().toLocaleTimeString();
+        }, 60000);
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+</html>
