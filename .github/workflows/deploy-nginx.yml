@@ -3,12 +3,11 @@ name: Deploy to Nginx server
 on:
   push:
     branches:
-      - main  # Или другая твоя ветка
+      - main  # Укажите ветку, которую хотите отслеживать
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
